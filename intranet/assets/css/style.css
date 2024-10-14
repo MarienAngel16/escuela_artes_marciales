@@ -1,0 +1,14 @@
+.boton{
+    background-color: yellow;
+    border-radius: 20%;
+    color:black;
+    font-weight:bold;
+    font-size: 150%;
+    padding: 10px;
+    margin: 0 20px 0 0;
+}
+
+.botones{
+    margin-left: 1200px;
+}
+
