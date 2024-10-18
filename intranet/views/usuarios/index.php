@@ -40,7 +40,11 @@
 
    
 
-   <main></main>
+   <main>
+
+   <?php include_once "create.php" ?>   
+
+   </main>
 
    <footer>
    <?php include_once "../shared/footer.php" ?>
