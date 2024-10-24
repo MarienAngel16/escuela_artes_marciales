@@ -32,3 +32,157 @@ h1{
     color:white;
 }
 
+.boton{
+    background-color: yellow;
+    width: 150px;
+    height: 50px;
+    border-radius: 7px;
+    color:black;
+    font-weight:bold;
+    font-size: 100%;
+    padding: 10px;
+    margin: 0 20px 0 0;
+}
+
+.botones{
+    margin-left: 70px;
+}
+
+/* FORMULARIO DE ALTA DE REGISTROS */
+form {
+    width: 400px; /* Ancho del formulario */
+    margin: auto;
+    margin-bottom:5%;
+    margin-top:5%;
+    border:2px solid #13020f;
+    
+  }
+
+.header_1{
+    margin: 50px auto;
+    width: 200px;
+    /* border: 1px solid black; */
+    text-align: center;
+}
+.footer_1{
+    margin: 50px auto;
+    width: 300px;
+    /* border: 1px solid black; */
+    text-align: center;
+}
+.total_par_d{
+    width: 60%;
+    margin: 15px auto;
+    padding: 10px;
+    /* border: 2px solid black; */
+}
+.total_par_d p{
+    font-size: 20px;
+    margin:  auto 60px;
+    display: inline;
+    font-weight: bold;
+}
+.total_par_d form{
+    margin: auto 60px;
+    display: inline;
+}
+.btn_color{
+    padding: 5px;
+    color: black;
+    background-color: #faf315;
+    border: 0px solid ;
+    border-radius: 8px ;
+    font-size: 13px;
+    font-weight: bold;
+}
+.table label, th{
+    font-size: 10px;
+    font-weight: bold;
+}
+.table p{
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    margin: 2px;
+}
+.num{
+    margin-top: 7px;
+}
+.horario{
+    width: 50%;
+    margin: 7px auto;
+    /* border: 1px solid black; */
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+.info_grupo{
+    width: 80%;
+    margin: 10px auto;
+    /* border: 1px solid black; */
+    text-align: center;
+}
+.info_grupo p{
+    display: inline;
+    margin: auto 40px;
+    font-weight: bold;
+    font-size: 26px;
+}
+.info_grupo img{
+    display: inline;
+    /* margin: 3px 10px 16px 1px; */
+    margin: 0px 10px 10px 1px;
+}
+.profesor{
+    width: 80%;
+    margin: 13px auto;
+    /* border: 1px solid black; */
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+
+footer {
+    background: #414141;
+    padding: 60px 0 30px 0;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .contenedor-footer {
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    margin: auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .content-foo {
+    text-align: center;
+  }
+  
+  .content-foo h4 {
+    color: #fff;
+    border-bottom: 3px solid #ffbb00;
+    padding-bottom: 5px;
+    margin-bottom: 10px;    
+  }
+  
+  .content-foo p {
+    color: #ccc;
+  }
+  
+  .titulo-final {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0 0 0;
+    color: #9e9797;
+  }
+  
+  @media screen and (max-width:900px) {
+    header {
+        background-position: center;
+    }}

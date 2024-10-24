@@ -1,13 +1,3 @@
-<style>
-        form {
-      width: 400px; /* Ancho del formulario */
-      margin: auto;
-      margin-bottom:5%;
-      margin-top:5%;
-      border:2px solid #ff9daa;
-      
-    }
-</style>
 
 <form action="../../controllers/usuarios.php" method="POST">
 <h5 class="card-title text-center">Dar de Alta Usuarios</h5>

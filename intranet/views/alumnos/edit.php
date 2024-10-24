@@ -11,13 +11,7 @@
   <body>
     <!--HEADER-->
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="header_1">
-                    HEADER
-                </div>
-            </div>
-        </div>
+
         <div class="row">
             <div class="col">
                 <div class="info_grupo">
@@ -355,13 +349,6 @@
                     <form action="Vista_edicion_user.php" method="post">
                         <button type="submit" name="nuevo_participante" class="btn_color">Añadir Participante</button>
                     </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="footer_1">
-                    FOOTER
-                </div>
             </div>
         </div>
     </div>

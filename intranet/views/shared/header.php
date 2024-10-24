@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de la Escuela</title>
+
+    <!-- Conexión Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="../../../public/css/style.css">
+</head>
+<body>
+
 <div class="container-fluid" style="background-color:#bf0603;">
     <div class="row align-items-center">
         
@@ -18,11 +33,8 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
                         <a class="nav-item nav-link active boton" href="#">Mi Cuenta</a>
-                        <a class="nav-item nav-link boton" href="#">Salir</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
+                        <a class="nav-item nav-link boton" href="#">Salir</a>                
+
+
+
         
-    </div>
-</div>
