@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador de Usuarios</title>
+    <title>Administrador de Alumnos</title>
 
-     <!-- Conexión Bootstrap -->
+    <!-- Conexión Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
      <!-- Hoja de Estilos -->
     <link rel="stylesheet" href="../../assets/css/style.css">
 
 </head>
-
 <body>
-  
-   <header>
+     
+<header>
     
     <?php include_once "../shared/header.php" ?>    
 
@@ -27,7 +26,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">                       
                         <a class="nav-item nav-link boton" href="#">Dar de Alta</a>
-                        <a class="nav-item nav-link boton" href="#">Ver Usuarios</a>
+                        <a class="nav-item nav-link boton" href="#">Ver Alumnos</a>
                     </div>
                 </div>
             </nav>
@@ -38,18 +37,15 @@
 
    </header>
 
-   
-
    <main>
 
-   <?php include_once "create.php" ?>   
+   <?php include_once "edit.php" ?>   
 
    </main>
 
    <footer>
    <?php include_once "../shared/footer.php" ?>
    </footer>
-
+    
 </body>
-
 </html>

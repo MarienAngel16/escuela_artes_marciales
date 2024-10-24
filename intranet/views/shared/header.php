@@ -17,8 +17,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
-                        <a class="nav-item nav-link active boton" href="#">Cuenta</a>
-                        <a class="nav-item nav-link boton" href="#">Dar de Alta</a>
+                        <a class="nav-item nav-link active boton" href="#">Mi Cuenta</a>
+                        <a class="nav-item nav-link boton" href="#">Salir</a>
                     </div>
                 </div>
             </nav>
