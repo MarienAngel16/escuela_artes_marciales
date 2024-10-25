@@ -6,10 +6,12 @@ como se accede y modifica la información de la tabla Usuarios */
 
 class UsuarioModel {
     private $conexion;
+    private $datos;
 
     // Constructor para establecer la conexión a la base de datos
     public function __construct($db) {
         $this->conexion = $db;
+        $this->datos = array();
     }
 
     // Método para verificar si un usuario ya existe
@@ -51,6 +53,21 @@ public function altaUsuario($usuario, $nombre, $telefono, $correo, $direccion, $
         return false;
     }
 }
+    public function __getInstructor(){
+        $sql = "SELECT us.Id_usuario, us.Nombre FROM Usuarios AS us INNER JOIN usuario_rol AS usrol ON  us.Id_usuario = usrol.Id_usuario WHERE usrol.Id_rol = 'Instructor_id_rol';";
+        $consulta = $this->conexion->query(sql);
+        if($consulta->num_rows == 0){
+            $this->datos[0]="Non";
+            return $this->datos;
+        }else{
+            $i=0;
+            while($filas = $consulta->fetch_assoc()){
+                $this->datos[$i] = $filas;
+                $i++;
+            }
+            return $this->datos;
+        }
+    }
 
 }
 ?>
