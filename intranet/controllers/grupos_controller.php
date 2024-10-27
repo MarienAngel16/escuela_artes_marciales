@@ -12,14 +12,14 @@ class GrupoController{
         #this->datos =  array(); # Datos de los usuarios 
         $this->conexion = $db;
         $this->usuario_model = new UsuarioModel($this->conexion);
-        $this->grupo_model = new GrupoModel($this->conexion)
+        $this->grupo_model = new GrupoModel($this->conexion);
     }
     public function __imprimirInstructor(){
-        $html; #Mi variable $html contiene codigo html de los datos necesarios
+        $html=""; #Mi variable $html contiene codigo html de los datos necesarios
         $this->datos = $this->usuario_model->__getInstructor(); #SE OBTIENE LOS INSTRUCTORES
-        $numero_filas = count($datos); 
+        $numero_filas = count($this->datos); 
         if($numero_filas == 1 && $this->datos[0] == "Non"){
-            $html=<<<EOT
+            $html.=<<<EOT
             <select name='instructor'>
                 <option value='non'>No existen Instructores</option>
             </select>
@@ -27,10 +27,10 @@ class GrupoController{
             EOT;
         }else{
             #Si hay instructor
-            $html = "<select name='instructor'>";
-            for($c=0 ;c<$numero_filas;$c++){
+            $html.= "<select name='instructor'>";
+            for($c=0 ;$c<$numero_filas;$c++){
                 $html .=<<<EOT
-                <option value='{$this->datos[c]['Id_usuario']}'>{$this->datos[$c]['Nombre']}</option>
+                <option value='{$this->datos[$c]['Id_usuario']}'>{$this->datos[$c]['Nombre']}</option>
                 EOT;
             }
             $html .=<<<EOT
@@ -38,6 +38,7 @@ class GrupoController{
             <input type='submit' name='nuevo_grupo' value'instructor'/>
             EOT;
         }
+        return $html;
     }
     public function __registrarGrupo(){
         if(isset($_POST['nuevo_grupo'])){
@@ -50,15 +51,15 @@ class GrupoController{
             $consulta = $this->grupo_model->__altaGrupo($numero,$disciplina,$horario,$sala,$cupo,$id_usuario);
             if(!consulta){
                 echo "<script>alert('Error No se pudo hacer el alta de grupo')</script>";
+            }else{
+                echo "<script>alert('El grupo de ".$disciplina." se guardo correctamente')</script>";
             }
-            echo "<script>alert('El grupo de ".$disciplina." se guardo correctamente')</script>";
         }
     }
 }
 $gpo = new GrupoController($conexion);
 $gpo->__registrarGrupo();
-$gpo->__imprimirInstructor();
-
+$html = $gpo->__imprimirInstructor();
 
 #Llamar a la vista de registrar grupo 
 require_once "../views/grupos/create_view.php";

@@ -54,8 +54,8 @@ public function altaUsuario($usuario, $nombre, $telefono, $correo, $direccion, $
     }
 }
     public function __getInstructor(){
-        $sql = "SELECT us.Id_usuario, us.Nombre FROM Usuarios AS us INNER JOIN usuario_rol AS usrol ON  us.Id_usuario = usrol.Id_usuario WHERE usrol.Id_rol = 'Instructor_id_rol';";
-        $consulta = $this->conexion->query(sql);
+        $sql = "SELECT us.Id_usuario, us.Nombre FROM Usuarios AS us INNER JOIN usuario_rol AS usrol ON  us.Id_usuario = usrol.Id_usuario WHERE usrol.Id_rol = 4;";
+        $consulta = $this->conexion->query($sql);
         if($consulta->num_rows == 0){
             $this->datos[0]="Non";
             return $this->datos;

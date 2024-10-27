@@ -10,7 +10,8 @@
         <label for='prueba'>
             HOLA ESTO ES UNA PRUEBA DE OBTENCIÓN DE DATOS
         </label>
-        <?
+        <br/>
+        <?php
         echo $html;
         ?>
     </form>

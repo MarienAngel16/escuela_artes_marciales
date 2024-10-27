@@ -3,12 +3,12 @@ class GrupoModel{
     private $base;
 
     public function __construct($conexion){
-        this->base = $conexion;
+        $this->base = $conexion;
     }
 
     public function __altaGrupo($numero,$disciplina,$horario,$sala,$cupo,$id_usuario){
         $sql ="INSERT INTO grupos (Id_grupo,Numero_grupo,Disciplina,Horario,Sala,Cupo,Id_usuario) VALUES (null,$numero,$disciplina,$horario,$sala,$cupo,$id_usuario);";
-        $consulta= this->base->query($sql); #EJECUTA LA SENTENCIA
+        $consulta= $this->base->query($sql); #EJECUTA LA SENTENCIA
         if($consulta){
             #LA CONSULTA SE HIZO CORRECTAMENTE
             return true;
@@ -16,9 +16,10 @@ class GrupoModel{
             #LA CONSULTA NO SE HIZO CORRECTAMENTE
             return false;
         }
+    }
     public function __buscarGrupo($id){
         $sql = "SELECT * FROM grupos WHERE Id_grupo =$id;";
-        $consulta = this->base->query($sql);
+        $consulta = $this->base->query($sql);
         if($consulta->num_rows == 0){
             #NO existe el grupo  
             return true;
@@ -26,8 +27,6 @@ class GrupoModel{
             #Existe el  grupo 
             return false;
         }
-    }
-
     }
 }
 ?>
