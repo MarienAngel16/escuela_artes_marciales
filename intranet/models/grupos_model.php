@@ -7,7 +7,7 @@ class GrupoModel{
     }
 
     public function __altaGrupo($numero,$disciplina,$horario,$sala,$cupo,$id_usuario){
-        $sql ="INSERT INTO grupos (Id_grupo,Numero_grupo,Disciplina,Horario,Sala,Cupo,Id_usuario) VALUES (null,$numero,$disciplina,$horario,$sala,$cupo,$id_usuario);";
+        $sql ="INSERT INTO Grupos (Id_grupo,Numero_grupo,Disciplina,Horario,Sala,Cupo,Id_usuario) VALUES (null,'$numero','$disciplina','$horario','$sala','$cupo','$id_usuario');";
         $consulta= $this->base->query($sql); #EJECUTA LA SENTENCIA
         if($consulta){
             #LA CONSULTA SE HIZO CORRECTAMENTE

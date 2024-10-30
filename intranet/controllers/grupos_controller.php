@@ -15,19 +15,22 @@ class GrupoController{
         $this->grupo_model = new GrupoModel($this->conexion);
     }
     public function __imprimirInstructor(){
-        $html=""; #Mi variable $html contiene codigo html de los datos necesarios
+        $html="<div class='mb-3'>"; #Mi variable $html contiene codigo html de los datos necesarios
         $this->datos = $this->usuario_model->__getInstructor(); #SE OBTIENE LOS INSTRUCTORES
         $numero_filas = count($this->datos); 
         if($numero_filas == 1 && $this->datos[0] == "Non"){
             $html.=<<<EOT
-            <select name='instructor'>
-                <option value='non'>No existen Instructores</option>
+            <select name='instructor' class='form-select form-select-sm'>
+                <option value='non' selected>No existen Instructores</option>
             </select>
-            <input type='submit' name='nuevo_grupo' value'instructor' disable='true'/>
+            </div>
+            <div class='mb-3'>
+                <input type='submit' class='btn' name='deshabilitado' value'Enviar' disable='true'/>
+            </div>
             EOT;
         }else{
             #Si hay instructor
-            $html.= "<select name='instructor'>";
+            $html.= "<select name='instructor' class='form-select form-select-sm'> <option selected>Selecciona al Instructor</option>";
             for($c=0 ;$c<$numero_filas;$c++){
                 $html .=<<<EOT
                 <option value='{$this->datos[$c]['Id_usuario']}'>{$this->datos[$c]['Nombre']}</option>
@@ -35,21 +38,24 @@ class GrupoController{
             }
             $html .=<<<EOT
             </select>
-            <input type='submit' name='nuevo_grupo' value'instructor'/>
+            </div>
+            <div class='mb-3'>
+                <input type='submit' class='btn btn-danger' name='nuevo_grupo' value'instructor'/>
+            </div>
             EOT;
         }
         return $html;
     }
     public function __registrarGrupo(){
-        if(isset($_POST['nuevo_grupo'])){
-            $numero = $_POST['numero'];
-            $disciplina = $_POST['disciplina'];
-            $horario = $_POST['horario'];
-            $sala = $_POST['sala'];
-            $cupo = $_POST['cupo'];
-            $id_usuario = $_POST['instructor'];
+        if(isset($_POST['nuevo_grupo'],$_POST['numero'],$_POST['disciplina'],$_POST['horario'],$_POST['sala'],$_POST['cupo'],$_POST['instructor'])){
+            $numero = mysqli_real_escape_string($this->conexion,$_POST['numero']);
+            $disciplina = mysqli_real_escape_string($this->conexion,$_POST['disciplina']);
+            $horario = mysqli_real_escape_string($this->conexion,$_POST['horario']);
+            $sala = mysqli_real_escape_string($this->conexion,$_POST['sala']);
+            $cupo = mysqli_real_escape_string($this->conexion,$_POST['cupo']);
+            $id_usuario = mysqli_real_escape_string($this->conexion,$_POST['instructor']);
             $consulta = $this->grupo_model->__altaGrupo($numero,$disciplina,$horario,$sala,$cupo,$id_usuario);
-            if(!consulta){
+            if(!$consulta){
                 echo "<script>alert('Error No se pudo hacer el alta de grupo')</script>";
             }else{
                 echo "<script>alert('El grupo de ".$disciplina." se guardo correctamente')</script>";
