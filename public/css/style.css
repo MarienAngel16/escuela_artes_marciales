@@ -186,3 +186,27 @@ footer {
     header {
         background-position: center;
     }}
+
+  /*   LOGIN */
+  form{
+    width: 28%;
+    margin:auto;
+    padding-top: 150px;
+    font-family: 'Arial', sans-serif; 
+text-align: center;
+     }
+
+.imagen{
+ width: 150px;
+ display: block;
+ margin: auto;
+}
+
+.bg{
+ background-color: #eeeeee;
+}
+.btn-color{
+ background-color: #ffff00;
+ border: none;
+ margin-top: 10px;
+}
