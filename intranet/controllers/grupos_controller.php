@@ -1,7 +1,12 @@
 <?php
-require_once "../../config/database.php";
-require_once "../models/grupos_model.php";
-require_once "../models/usuarios.php";
+/*
+Existe un problema cuando los controladores estan siendo llamados desde el
+index, ya que la ruta cambia desde su llamado en index.php. 
+solución: usar la constante __DIR__."RUTA"
+*/
+require_once __DIR__."/../../config/database.php";
+require_once __DIR__."/../models/grupos_model.php";
+require_once __DIR__."/../models/usuarios.php";
 class GrupoController{
     private $datos;
     private $conexion;
@@ -68,5 +73,5 @@ $gpo->__registrarGrupo();
 $html = $gpo->__imprimirInstructor();
 
 #Llamar a la vista de registrar grupo 
-require_once "../views/grupos/create_view.php";
+require_once "create_view.php";
 ?>

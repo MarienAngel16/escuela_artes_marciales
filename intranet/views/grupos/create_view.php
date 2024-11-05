@@ -4,7 +4,7 @@
     <!-- Espacio para el form-->
     <div class="formu">
         <h2>Registro Grupo</h2>
-        <form action="grupos_controller.php" method="post">
+        <form action="grupos_controller.php" method="post" class="formu_g">
         <div class="mb-3">
             <label for="numero_grupo" class="form-label">Numero de Grupo</label>
             <input type="text" name="numero" class="form-control form-control-sm" id="numero_grupo" placeholder="ej.1321">
@@ -45,7 +45,7 @@
         </div>
         <div class="col">
         <!--espacio para la imagen-->
-        <img src="../../public/images/grupo_alta.jpeg" width="500px" class="rounded mx-auto d-block imagen_p" alt="grupo">
+        <img src="../../../public/images/grupo_alta.jpeg" width="500px" class="rounded mx-auto d-block imagen_p" alt="grupo">
         </div>            
     </div>
 </div>

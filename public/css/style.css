@@ -165,9 +165,10 @@ form {
     margin:0px 130px;
     font-weight:bold;
 }
-.formu form{
+.formu_g{
     width:83%;
     margin:2px auto;
+    border: 0px;
 }
 .imagen_p{
     margin-top:100px;
