@@ -35,7 +35,33 @@
         <option value="3">Secretario</option>
         <option value="4">Instructor</option>
     </select>
+  </div>
+  <div class="form-group">
+    <label for="sede1">Sede a escoger</label>
+    <select class="form-control" id="sede1" name="sede1" required>
+
+    <?php 
+    include_once "config/database.php";
+    
+    // Corrección de la consulta
+    $consulta = "SELECT Id_sede, Nombre_sede FROM Sedes";
+    $resultado = mysqli_query($conexion, $consulta);
+
+    // Verificar si la consulta fue exitosa
+    if ($resultado && mysqli_num_rows($resultado) > 0) {    
+        // Iterar por cada fila del resultado y crear las opciones
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $SedeId = $fila['Id_sede'];
+            $SedeNombre = $fila['Nombre_sede'];
+            echo '<option value="'. $SedeId .'">'. $SedeId .' - '. $SedeNombre .'</option>';
+        }
+    } else {
+        echo '<option value="">No hay sedes disponibles</option>';
+    }
+    ?>
+    </select>
 </div>
+
 
   
     <button type="submit" class="btn btn-primary">Dar de alta Usuario</button>
