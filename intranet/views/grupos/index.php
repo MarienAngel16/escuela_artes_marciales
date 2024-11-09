@@ -1,9 +1,8 @@
 <?php include_once  "../shared/header.php";?>
-                        <a class="nav-item nav-link active boton" href="#">Cuenta</a>
-                        <a class="nav-item nav-link boton" href="#">Agregar Nuevo Grupo</a>
-                    </div>
-                </div>
-            </nav>
+                        <li><a class="nav-item nav-link " href="#">Crear Grupos</a></li>
+                        <li><a class="nav-item nav-link " href="#">Visualizar Grupos</a></li>
+                        </ul>                                         
+                </nav>
         </div><!-- Cierre de col -->
         
     </div> <!-- Cierre de row -->

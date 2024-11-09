@@ -25,7 +25,8 @@ class UsuarioModel {
     }
 
 // Método para insertar un nuevo usuario y vincularlo con un rol
-public function altaUsuario($usuario, $nombre, $telefono, $correo, $direccion, $contrasena, $rol) {
+public function altaUsuario($usuario, $nombre, $telefono, $correo, $direccion, $contrasena, $rol, $sede) {
+
     // Inserta el usuario en la tabla Usuarios
     $query = "INSERT INTO Usuarios (usuario, nombre, telefono, email, direccion, contrasena) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $this->conexion->prepare($query);
@@ -35,24 +36,44 @@ public function altaUsuario($usuario, $nombre, $telefono, $correo, $direccion, $
         // Obtener el ID del usuario recién creado
         $idUsuario = $stmt->insert_id;
 
-        // Ahora inserta la relación en la tabla usuario_rol
+        // Inserta la relación en la tabla usuario_rol
         $queryRol = "INSERT INTO usuario_rol (Id_usuario, Id_rol) VALUES (?, ?)";
         $stmtRol = $this->conexion->prepare($queryRol);
-        $stmtRol->bind_param('ii', $idUsuario, $rol); // El rol se pasa desde el formulario (1, 2, 3, o 4)
-        
+        $stmtRol->bind_param('ii', $idUsuario, $rol); // El rol se pasa desde el formulario
+
         if ($stmtRol->execute()) {
-            return true;  // Usuario y rol insertados correctamente
+            echo "Inserción en usuario_rol completada correctamente.<br>";
         } else {
-            // Manejar el error de la inserción en la tabla usuario_rol
-            echo "Error al insertar en usuario_rol: " . $this->conexion->error;
+            echo "Error al insertar en usuario_rol: " . $stmtRol->error . "<br>";
             return false;
         }
+
+        // Inserta la relación en la tabla sede_usuario
+        $querySede = "INSERT INTO sede_usuario (Id_sede, Id_usuario) VALUES (?, ?)";
+        $stmtSede = $this->conexion->prepare($querySede);
+
+        if (!$stmtSede) {
+            echo "Error al preparar la consulta sede_usuario: " . $this->conexion->error . "<br>";
+            return false;
+        }
+
+        $stmtSede->bind_param('ii', $sede, $idUsuario); // La sede se pasa a la tabla
+
+        if ($stmtSede->execute()) {
+            echo "Inserción en sede_usuario completada correctamente.<br>";
+            return true;  // Todo insertado correctamente
+        } else {
+            echo "Error al insertar en sede_usuario: " . $stmtSede->error . "<br>";
+            return false;
+        }
+
     } else {
         // Manejar el error de la inserción en la tabla Usuarios
-        echo "Error al insertar en Usuarios: " . $this->conexion->error;
+        echo "Error al insertar en Usuarios: " . $stmt->error . "<br>";
         return false;
     }
 }
+
     public function __getInstructor(){
         $sql = "SELECT us.Id_usuario, us.Nombre FROM Usuarios AS us INNER JOIN usuario_rol AS usrol ON  us.Id_usuario = usrol.Id_usuario WHERE usrol.Id_rol = 4;";
         $consulta = $this->conexion->query($sql);
