@@ -28,5 +28,21 @@ class GrupoModel{
             return false;
         }
     }
+
+    public function __getGrupos(){
+        $sql = "SELECT * FROM Grupos";
+        $consulta = $this->conexion->query($sql);
+        if($consulta->num_rows == 0){
+            $this->datos[0]="Non";
+            return $this->datos;
+        }else{
+            $i=0;
+            while($filas = $consulta->fetch_assoc()){
+                $this->datos[$i] = $filas;
+                $i++;
+            }
+            return $this->datos;
+        }
+    }
 }
 ?>

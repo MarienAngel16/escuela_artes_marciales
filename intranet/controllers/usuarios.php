@@ -39,19 +39,51 @@ class UsuarioController {
             } else {
                 // Si el usuario no existe, lo inserta en la base de datos
                 if ($this->usuarioModel->altaUsuario($usuario, $nombre, $telefono, $correo, $direccion, $contrasena,$rol,$sede)) {
+
                     echo '
-                    <div class="row" style="display: block;">
-                    <h3 style="margin:5%  auto; color: #003D79; font-size: 300%; text-align: center;">
-                    Guardado Correctamente    
-                    </h3>
-                    </div>';
+                    <div class="modal" tabindex="-1" role="dialog">
+                         <div class="modal-dialog" role="document">
+                             <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title">Alta Usuario</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                 </button>
+                                </div>
+                                  <div class="modal-body">
+                                      <p>Inserción de usuario exitosa</p>
+                                  </div>
+                                  <div class="modal-footer">                              
+                                      <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Cerrar</b></button>
+                                  </div>
+                             </div>
+                        </div>
+                    </div>
+                    ';
+
                 } else {
+
                     echo '
-                    <div class="row" style="display: block;">
-                    <h3 style="margin:5%  auto; color: #003D79; font-size: 300%; text-align: center;">
-                    No se pudo guardar    
-                    </h3>
-                    </div>';
+                    <div class="modal" tabindex="-1" role="dialog">
+                         <div class="modal-dialog" role="document">
+                             <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title">Alta Usuario</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                 </button>
+                                </div>
+                                  <div class="modal-body">
+                                      <p>Error al insertar usuario</p>
+                                  </div>
+                                  <div class="modal-footer">                              
+                                      <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Cerrar</b></button>
+                                  </div>
+                             </div>
+                        </div>
+                    </div>
+                    ';
+
                 }
             }
         }else {

@@ -41,10 +41,9 @@ public function altaUsuario($usuario, $nombre, $telefono, $correo, $direccion, $
         $stmtRol = $this->conexion->prepare($queryRol);
         $stmtRol->bind_param('ii', $idUsuario, $rol); // El rol se pasa desde el formulario
 
-        if ($stmtRol->execute()) {
-            echo "Inserción en usuario_rol completada correctamente.<br>";
+        if ($stmtRol->execute()) {           
         } else {
-            echo "Error al insertar en usuario_rol: " . $stmtRol->error . "<br>";
+            /* echo "Error al insertar en usuario_rol: " . $stmtRol->error . "<br>"; */
             return false;
         }
 
@@ -53,23 +52,22 @@ public function altaUsuario($usuario, $nombre, $telefono, $correo, $direccion, $
         $stmtSede = $this->conexion->prepare($querySede);
 
         if (!$stmtSede) {
-            echo "Error al preparar la consulta sede_usuario: " . $this->conexion->error . "<br>";
+            /* echo "Error al preparar la consulta sede_usuario: " . $this->conexion->error . "<br>"; */
             return false;
         }
 
         $stmtSede->bind_param('ii', $sede, $idUsuario); // La sede se pasa a la tabla
 
-        if ($stmtSede->execute()) {
-            echo "Inserción en sede_usuario completada correctamente.<br>";
+        if ($stmtSede->execute()) {           
             return true;  // Todo insertado correctamente
         } else {
-            echo "Error al insertar en sede_usuario: " . $stmtSede->error . "<br>";
+            /* echo "Error al insertar en sede_usuario: " . $stmtSede->error . "<br>"; */
             return false;
         }
 
     } else {
         // Manejar el error de la inserción en la tabla Usuarios
-        echo "Error al insertar en Usuarios: " . $stmt->error . "<br>";
+        /* echo "Error al insertar en Usuarios: " . $stmt->error . "<br>"; */
         return false;
     }
 }
