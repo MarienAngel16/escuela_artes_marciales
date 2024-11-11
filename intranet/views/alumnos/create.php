@@ -5,7 +5,7 @@
         <h2>Dar de Alta Participantes</h2>
 
         
-        <form action="../../controllers/sedes.php"  method="POST" class="formu_g">
+        <form action="../../controllers/alumnos_controller.php"  method="POST" class="formu_g" style="padding-bottom:30px;";>
       
         <div class="mb-3">
            <label for="alumno1">Nombre </label>
@@ -30,7 +30,7 @@
         <div class="mb-3">
            <label for="emergencia1">Telefono de Emergencia</label>
            <input type="text" class="form-control" id="emergencia1" name="emergencia1" placeholder="Coloque un teléfono de emergencia del participante" required="required" >
-        </div>
+        </div>      
 
         <div class="mb-3">
           <label for="grupo1" class="form-label">Grupo a Escoger</label>
@@ -62,9 +62,11 @@
             </select>
 
     
-</div>
+            </div>
   
         <input type='submit' class='btn btn-danger' name='nueva_sede' value'Enviar' />
+
+
 
         </form>
 

@@ -10,8 +10,7 @@ class AlumnoController{
     private $alumno_model;
     private $grupo_model;
 
-    public function __construct($db){
-        #this->datos =  array(); # Datos de los grupos
+    public function __construct($db){        
         $this->conexion = $db;
         $this->grupo_model = new GrupoModel($this->conexion);
         $this->alumno_model = new AlumnoModel($this->conexion);
@@ -22,48 +21,80 @@ class AlumnoController{
         $this->datos = $this->grupo_model->__getGrupos(); #Obtiene los grupos
         $numero_filas = count($this->datos); 
         if($numero_filas == 1 && $this->datos[0] == "Non"){
-            $html.=<<<EOT
+            $html_grupos.=<<<EOT
             <select name='grupo1' class='form-select form-select-sm'>
                 <option value='non' selected>No existen grupos registrados</option>
             </select>
             </div>
             <div class='mb-3'>
-                <input type='submit' class='btn' name='deshabilitado' value'Enviar' disable='true'/>
+                <input type='submit' class='btn' name='deshabilitado' value='Enviar' disabled='true'/>
             </div>
             EOT;
         }else{
             #Si hay grupos
             $html_grupos.= "<select name='grupo1' class='form-select form-select-sm'> <option selected>Grupo a Escoger</option>";
             for($c=0 ;$c<$numero_filas;$c++){
-                $html .=<<<EOT
-                <option value='{$this->datos[$c]['Id_grupo']}'>{
-                 $this->datos[$c]['Numero_grupo'],
-                 $this->datos[$c]['Disciplina'],
-                 $this->datos[$c]['Horario'],
-                 $this->datos[$c]['Sala'],
-                 $this->datos[$c]['Cupo']
-                }</option>
+                $html_grupos .=<<<EOT
+                 <option value="{$this->datos[$c]['Id_grupo']}">
+                 {$this->datos[$c]['Numero_grupo']}, 
+                 {$this->datos[$c]['Disciplina']}, 
+                 {$this->datos[$c]['Horario']}, 
+                 {$this->datos[$c]['Sala']}, 
+                 {$this->datos[$c]['Cupo']}
+                 </option>
+
                 EOT;
             }
-            $html .=<<<EOT
+            $html_grupos .=<<<EOT
             </select>
             </div>
             <div class='mb-3'>
-                <input type='submit' class='btn btn-danger' name='nuevo_grupo' value'instructor'/>
+                <input type='submit' class='btn btn-danger' name='nuevo_alumno' value='Enviar' disabled='true' />
             </div>
             EOT;
         }
-        return $html_grupos;
-    
+        return $html_grupos;    
+    }
+
+    public function __registrarAlumno(){
+        if(isset($_POST['alumno1'],$_POST['correo1'],$_POST['edad1'],$_POST['direccion1'],$_POST['telefono1'],$_POST['emergencia1'],$_POST['grupo1'])){
+            $nombre = mysqli_real_escape_string($this->conexion,$_POST['alumno1']);
+            $correo = mysqli_real_escape_string($this->conexion,$_POST['correo1']);
+            $edad = mysqli_real_escape_string($this->conexion,$_POST['edad1']);
+            $direccion = mysqli_real_escape_string($this->conexion,$_POST['direccion1']);
+            $telefono = mysqli_real_escape_string($this->conexion,$_POST['telefono1']);
+            $emergencia = mysqli_real_escape_string($this->conexion,$_POST['emergencia1']);
+            $grupo = mysqli_real_escape_string($this->conexion,$_POST['grupo1']);
+
+                        // Busca si el alumno ya existe en la base de datos
+                        if ($this->alumno_model->__buscarAlumno($nombre, $correo)) {
+                            echo "<br>El registro ya está en la BD";
+                        }else{
+                            $consulta = $this->alumno_model->__altaAlumno($nombre,$correo,$edad,$direccion,$telefono,$emergencia,$grupo);
+                        }
+            
+            if(!$consulta){
+                echo "<script>alert('Error No se pudo hacer el alta de grupo')</script>";
+            }else{
+                echo "<script>alert('El alumno se guardo correctamente')</script>";
+            }
+        }
+        else {
+        echo '
+        <div class="row" style="display: block;">
+        <h3 style="margin:5%  auto; color: #003D79; font-size: 300%; text-align: center;">
+        No se pudo guardar  por que no se recibieron los parámetros necesarios de los alumnos
+        </h3>
+        </div>';
+    }
     }
 }
 
 $gpo = new AlumnoController($conexion);
-$gpo->__registrarGrupo();
-$html = $gpo->__imprimirInstructor();
+$gpo->__registrarAlumno();
+$html_grupos = $gpo->__imprimirGrupos();
 
-#Llamar a la vista de registrar grupo 
-require_once "create_view.php";
+#Llamar a la vista de registrar alumnos
+require_once "create.php";
 ?>
 
-?>

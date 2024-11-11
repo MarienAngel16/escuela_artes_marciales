@@ -31,7 +31,7 @@ class GrupoModel{
 
     public function __getGrupos(){
         $sql = "SELECT * FROM Grupos";
-        $consulta = $this->conexion->query($sql);
+        $consulta = $this->base->query($sql);
         if($consulta->num_rows == 0){
             $this->datos[0]="Non";
             return $this->datos;

@@ -10,11 +10,11 @@
 </div> <!-- Cierre de Container Navegación-->
    
 
-   <main>
-
-   <?php include_once "create.php" ?>   
-
-   </main>
+<main>
+    <?php
+    require_once "../../controllers/alumnos_controller.php";
+    ?>
+</main>
 
    <footer>
    <?php include_once "../shared/footer.php" ?>

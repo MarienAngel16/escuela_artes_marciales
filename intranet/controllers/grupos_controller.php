@@ -45,7 +45,7 @@ class GrupoController{
             </select>
             </div>
             <div class='mb-3'>
-                <input type='submit' class='btn btn-danger' name='nuevo_grupo' value'instructor'/>
+                <input type='submit' class='btn btn-danger' name='nuevo_grupo' value='instructor'/>
             </div>
             EOT;
         }

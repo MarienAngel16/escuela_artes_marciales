@@ -254,3 +254,12 @@ footer {
  border: none;
  margin-top: 10px;
 }
+
+/* Lista desplegable */
+.listado1{
+    background: #ff8400;
+
+}
+.cuerpo1{
+    background: #fedd23;
+}
