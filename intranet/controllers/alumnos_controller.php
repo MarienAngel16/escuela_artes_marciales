@@ -49,7 +49,7 @@ class AlumnoController{
             </select>
             </div>
             <div class='mb-3'>
-                <input type='submit' class='btn btn-danger' name='nuevo_alumno' value='Enviar' disabled='true' />
+                <input type='submit' class='btn btn-danger' name='nuevo_alumno' value='Enviar' />
             </div>
             EOT;
         }
@@ -79,14 +79,6 @@ class AlumnoController{
                 echo "<script>alert('El alumno se guardo correctamente')</script>";
             }
         }
-        else {
-        echo '
-        <div class="row" style="display: block;">
-        <h3 style="margin:5%  auto; color: #003D79; font-size: 300%; text-align: center;">
-        No se pudo guardar  por que no se recibieron los parámetros necesarios de los alumnos
-        </h3>
-        </div>';
-    }
     }
 }
 

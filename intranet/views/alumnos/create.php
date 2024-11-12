@@ -32,41 +32,9 @@
            <input type="text" class="form-control" id="emergencia1" name="emergencia1" placeholder="Coloque un teléfono de emergencia del participante" required="required" >
         </div>      
 
-        <div class="mb-3">
-          <label for="grupo1" class="form-label">Grupo a Escoger</label>
-            <select class="form-control" id="grupo1" name="grupo1" required>
-
-              <?php 
-              include_once "../../../config/database.php";
-    
-              // Corrección de la consulta
-              $consulta = "SELECT Id_grupo, Numero_grupo, Disciplina, Horario, Sala, Cupo FROM Grupos";
-              $resultado = mysqli_query($conexion, $consulta);
-
-              // Verificar si la consulta fue exitosa
-              if ($resultado && mysqli_num_rows($resultado) > 0) {    
-              // Iterar por cada fila del resultado y crear las opciones
-              while ($fila = mysqli_fetch_assoc($resultado)) {
-              $GrupoId = $fila['Id_grupo'];
-              $NumGrupo = $fila['Numero_grupo'];
-              $DiscGrupo= $fila['Disciplina'];
-              $HorarioGrupo=$fila['Horario'];
-              $SalaGrupo=$fila['Sala'];
-              $CupoGrupo=$fila['Cupo'];
-              echo '<option value="'. $GrupoId .'">'. $GrupoId .' - '. $NumGrupo .' - '. $DiscGrupo .' - '. $HorarioGrupo .' - '. $SalaGrupo .' - '. $CupoGrupo .'</option>';
-              }
-              } else {
-              echo '<option value="">No hay grupos disponibles</option>';
-                     }
-              ?>
-            </select>
-
-    
-            </div>
-  
-        <input type='submit' class='btn btn-danger' name='nueva_sede' value'Enviar' />
-
-
+        <?php 
+        echo $html_grupos;
+        ?>
 
         </form>
 

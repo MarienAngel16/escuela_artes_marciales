@@ -4,7 +4,7 @@
     <!-- Espacio para el form-->
     <div class="formu">
         <h2>Registro Grupo</h2>
-        <form action="grupos_controller.php" method="post" class="formu_g">
+        <form action="../../controllers/grupos_controller.php" method="post" class="formu_g">
         <div class="mb-3">
             <label for="numero_grupo" class="form-label">Numero de Grupo</label>
             <input type="text" name="numero" class="form-control form-control-sm" id="numero_grupo" placeholder="ej.1321">
@@ -38,8 +38,12 @@
                 <input type="text" class="form-control form-control-sm" name="cupo" id="cupo_grupo" placeholder="ej.15">
             </div>
             <?php
-            echo $html;
+            echo $html_instructor;
+            echo $html_sede;
             ?>
+            <div class='mb-3'>
+            <input type='submit' class='btn btn-danger' name='nuevo_grupo' value='Enviar' />
+            </div>
             </form>
         </div>
         </div>

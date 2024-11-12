@@ -42,5 +42,22 @@ public function altaSede($nombre_sede, $pais, $direccion, $telefono) {
     }
 }
 
+/* Función para desplegar sedes */
+public function __getSede(){
+    $sql = "SELECT * FROM Sedes";
+    $consulta = $this->conexion->query($sql);
+    if($consulta->num_rows == 0){
+        $this->datos[0]="Non";
+        return $this->datos;
+    }else{
+        $i=0;
+        while($filas = $consulta->fetch_assoc()){
+            $this->datos[$i] = $filas;
+            $i++;
+        }
+        return $this->datos;
+    }
+}
+
 }
 ?>

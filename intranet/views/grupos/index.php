@@ -11,6 +11,7 @@
 <main>
     <?php
     require_once "../../controllers/grupos_controller.php";
+    /* require_once"mostrar_view.php"; */
     ?>
 </main>
 
