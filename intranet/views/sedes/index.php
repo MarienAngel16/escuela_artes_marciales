@@ -1,14 +1,15 @@
 <?php include_once "../shared/header.php" ?>  
 
-                         <a class="nav-item nav-link active boton" href="#">Cuenta</a>
-                        <a class="nav-item nav-link boton" href="#">Dar de Alta</a>
-                    </div>
-                </div>
-            </nav>
+                         <li><a class="nav-item nav-link active boton" href="#">Dar de Alta Sedes</a></li>
+                        <li><a class="nav-item nav-link boton" href="#">Ver Sedes</a></li>
+                      </ul>                
+                    </nav>
+            
         </div><!-- Cierre de col -->
         
     </div> <!-- Cierre de row -->
-</div> <!-- Cierre de Container -->
+</div> <!-- Cierre de Container Navegación-->
+
        
    
    <main>

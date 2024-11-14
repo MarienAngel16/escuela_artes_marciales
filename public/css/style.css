@@ -32,22 +32,33 @@ h1{
     color:white;
 }
 
-.boton{
-    background-color: yellow;
-    width: 150px;
-    height: 50px;
-    border-radius: 7px;
-    color:black;
-    font-weight:bold;
-    font-size: 100%;
-    padding: 10px;
-    margin: 0 20px 0 0;
-}
+.menu{    
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Alinear elementos en línea */
+    gap: 15px; /* Espacio entre los elementos del menú */
+    margin-left: 30px;
+       
+    }
+    
+    /* Estilos para los elementos de la lista */
+    .menu li a {
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;   
+    margin-right: 7px;
+    }
+      
+      .menu a:hover{
+        color:#ffbb00;
+        font-weight: bold;
+      }
+      
+    
 
-.botones{
-    margin-left: 70px;
-}
 
+ 
 /* FORMULARIO DE ALTA DE REGISTROS */
 form {
     width: 400px; /* Ancho del formulario */
@@ -149,7 +160,7 @@ form {
     border:5px solid black;
     border-radius:14px;
     margin:10px auto;
-    margin-top:25px;
+    margin-top:25px;    
 }
 .formu h2{
     text-align:center;
@@ -169,8 +180,7 @@ form {
     width:83%;
     margin:2px auto;
     border: 0px;
-    padding-top: 0px;
-
+    padding-top: 0%;
 }
 .imagen_p{
     margin-top:100px;
@@ -225,9 +235,9 @@ footer {
   form{
     width: 28%;
     margin:auto;
-    padding-top: 150px;
+    padding-top: 150px; 
     font-family: 'Arial', sans-serif; 
-text-align: center;
+    text-align: center;
      }
 
 .imagen{
@@ -243,4 +253,13 @@ text-align: center;
  background-color: #ffff00;
  border: none;
  margin-top: 10px;
+}
+
+/* Lista desplegable */
+.listado1{
+    background: #ff8400;
+
+}
+.cuerpo1{
+    background: #fedd23;
 }

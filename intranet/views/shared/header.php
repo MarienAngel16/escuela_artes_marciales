@@ -6,10 +6,16 @@
     <title>Administrador de la Escuela</title>
 
     <!-- Conexión Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="../../../public/css/style.css">
+
 </head>
 <body>
 
@@ -17,23 +23,25 @@
     <div class="row align-items-center">
         
         <!-- Columna para el logo -->
-        <div class="col-lg-8 col-md-6 col-sm-12">
+        <div class="col">
             <img class="logo" 
-                style="width: 100%; max-width: 700px; height: 150px; object-fit: cover; margin: 5px 0px 5px 50px;" 
+                style="width: 100%; max-width: 700px; height: 150px; object-fit: cover; margin: 5px 0px 5px 10px;" 
                 src="../../assets/images/logo_alargado.png" 
-                alt="Logo de la Escuela">
+                alt="Logo de la Escuela">    
         </div>
         
-        <!-- Columna para la barra de navegación -->
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav ml-auto">
-                        <a class="nav-item nav-link active boton" href="#">Mi Cuenta</a>
-                        <a class="nav-item nav-link boton" href="#">Salir</a>                
+        <div class="col">
+            <nav>               
+                        <ul class="menu">
+                            <li><a href="#">Mi Cuenta</a></li>
+                            <li><a href="../../../logout.php">Salir</a></li>
+                     
+
+
+
+                            
+                        
+                                      
 
 
 

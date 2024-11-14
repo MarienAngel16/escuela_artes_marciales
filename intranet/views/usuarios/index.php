@@ -1,19 +1,19 @@
 <?php include_once "../shared/header.php" ?>  
              
-                        <a class="nav-item nav-link boton" href="#">Dar de Alta</a>
-                        <a class="nav-item nav-link boton" href="#">Ver Usuarios</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
+                        <li><a class="nav-item nav-link " href="#">Alta Usuarios</a></li>
+                        <li><a class="nav-item nav-link " href="#">Ver Usuarios</a></li>
+                        </ul>
+                        
+                        </nav>
+        </div><!-- Cierre de col -->
         
     </div> <!-- Cierre de row -->
-   </div> <!-- Cierre de Container -->
+</div> <!-- Cierre de Container Navegación-->
    
 
    <main>
 
-   <?php include_once "create.php" ?>   
+   <?php include_once "view.php" ?>   
 
    </main>
 
