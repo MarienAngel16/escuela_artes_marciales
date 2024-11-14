@@ -34,8 +34,7 @@
   <div class="mb-3">
     <label for="rol1" class="form-label">Rol a Desempeñar</label>
     
-    <select class="form-control" id="rol1" name="rol1" required>
-        <option value="1">Guardían</option>
+    <select class="form-control" id="rol1" name="rol1" required>        
         <option value="2">Directivo</option>
         <option value="3">Secretario</option>
         <option value="4">Instructor</option>

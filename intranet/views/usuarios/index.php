@@ -13,7 +13,7 @@
 
    <main>
 
-   <?php include_once "create.php" ?>   
+   <?php include_once "view.php" ?>   
 
    </main>
 
