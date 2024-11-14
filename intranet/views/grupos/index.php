@@ -10,10 +10,29 @@
 
 <main>
     <?php
-    require_once "../../controllers/grupos_controller.php";
-    /* require_once"mostrar_view.php"; */
+   /*  require_once "../../controllers/grupos_controller.php"; */
+    
+   require_once '../../../config/database.php';
+   require_once '../../controllers/grupos_controller.php';
+
+   $controller = isset($_GET['controller']) ? $_GET['controller'] : 'grupos';
+   $action = isset($_GET['action']) ? $_GET['action'] : 'index';
+   $id = isset($_GET['id']) ? $_GET['id'] : null;
+
+if ($controller === 'grupos') {
+    $gruposController = new GrupoController($conexion);
+    if ($action === 'showStudents' && $id) {
+        $gruposController->showStudents($id);
+    } else {
+        $gruposController->index();
+    }
+}
+
+
     ?>
 </main>
+
+
 
 <?php include_once "../shared/footer.php";?>
 

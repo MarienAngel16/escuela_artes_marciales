@@ -68,5 +68,53 @@ class GrupoModel{
             return $this->datos;
         }
     }
+
+    public function getAllGroups() {
+
+        $sql = "
+            SELECT 
+                g.Id_grupo,
+                g.Numero_grupo,
+                g.Disciplina,
+                g.Horario,
+                g.Sala,
+                g.Cupo,
+                u.nombre AS profesor_nombre,
+                s.Nombre_sede AS sede_nombre  
+            FROM 
+                Grupos g
+            JOIN 
+                Usuarios u ON g.Id_usuario = u.Id_usuario
+            JOIN 
+                sede_grupos sg ON g.Id_grupo = sg.Id_grupo
+            JOIN 
+                Sedes s ON sg.Id_sede = s.Id_sede
+        ";
+        
+        $result = $this->base->query($sql);
+        
+        $groups = [];
+        while ($row = $result->fetch_assoc()) {
+            $groups[] = $row;
+        }
+        
+        return $groups;
+    }
+
+    public function getStudentsByGroup($groupId) {
+        $sql = "SELECT * FROM Alumnos WHERE Id_grupo = ?";
+        $stmt = $this->base->prepare($sql);
+        $stmt->bind_param("i", $groupId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $students = [];
+        while ($row = $result->fetch_assoc()) {
+            $students[] = $row;
+        }
+        
+        return $students;
+    }
+
 }
 ?>

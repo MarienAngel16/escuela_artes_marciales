@@ -23,6 +23,24 @@ class GrupoController{
         $this->grupo_model = new GrupoModel($this->conexion);
         $this->sede_model = new SedeModel($this->conexion);
     }
+
+    public function index() {
+        // Llamamos a la función getAllGroups del modelo para obtener todos los grupos
+        $groups = $this->grupo_model->getAllGroups();
+        
+        // Incluimos la vista
+        require 'mostrar_view.php';
+    }
+
+    public function showStudents($groupId) {
+        // Obtenemos los alumnos por grupo usando el modelo
+        $students = $this->grupo_model->getStudentsByGroup($groupId);
+        
+        // Devolvemos los datos en formato JSON
+        header('Content-Type: application/json');
+        echo json_encode($students);
+    }
+
     public function __imprimirInstructor(){
 
         $html_instructor="<div class='mb-3'>"; #Mi variable $html_instructor contiene codigo html de los datos necesarios
@@ -81,7 +99,9 @@ class GrupoController{
             EOT;
         }
         return $html_sede;
-    }
+    }             
+     
+    
 
     public function __registrarGrupo(){
         if(isset($_POST['nuevo_grupo'],$_POST['numero'],$_POST['disciplina'],$_POST['horario'],$_POST['sala'],$_POST['cupo'],$_POST['instructor'],$_POST['sede'])){
@@ -111,5 +131,5 @@ $html_instructor = $gpo->__imprimirInstructor();
 $html_sede = $gpo->__imprimirSede();
 
 #Llamar a la vista de registrar grupo 
-require_once "create_view.php";
+/* require_once "create_view.php"; */
 ?>
