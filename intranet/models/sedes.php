@@ -6,10 +6,12 @@ como se accede y modifica la información de la tabla Usuarios */
 
 class SedeModel {
     private $conexion;
+    private $datos;
 
     // Constructor para establecer la conexión a la base de datos
     public function __construct($db) {
         $this->conexion = $db;
+        $this->datos = array();
     }
 
     // Método para verificar si un usuario ya existe
@@ -39,6 +41,22 @@ public function altaSede($nombre_sede, $pais, $direccion, $telefono) {
         // Manejar el error de la inserción en la tabla Usuarios
         echo "Error al insertar una sede: " . $this->conexion->error;
         return false;
+    }
+}
+
+public function __getSedes(){
+    $sql = "SELECT * FROM Sedes;";
+    $consulta = $this->conexion->query($sql);
+    if($consulta->num_rows == 0){
+        $this->datos[0]="Non";
+        return $this->datos;
+    }else{
+        $i =0;
+        while($filas = $consulta->fetch_assoc()){
+            $this->datos[$i] = $filas;
+            $i++;
+        }
+        return $this->datos;
     }
 }
 

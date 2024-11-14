@@ -7,11 +7,12 @@ En este caso, recibirá los datos del formulario (vista) y llamará
 al modelo para hacer la lógica de negocio, como verificar si 
 el usuario ya existe y agregar un nuevo usuario.*/
 
-include_once "../../config/database.php";   
-include_once "../models/sedes.php";
+include_once "../../../config/database.php";   
+include_once "../../models/sedes.php";
 
 class sedeController {
     private $sedeModel;
+    private $datos;
 
     // Constructor para inicializar el modelo de usuarios con la conexión de la base de datos
     public function __construct($db) {
@@ -34,7 +35,7 @@ class sedeController {
                 echo "<br>El registro ya está en la BD";
             } else {
                 // Si el usuario no existe, lo inserta en la base de datos
-                if ($this->sedeModel->altaSede($nombre_sede, $pais, $telefono,$direccion)) {
+                if ($this->sedeModel->altaSede($nombre_sede, $pais,$direccion,$telefono)) {
                     echo '
                     <div class="row" style="display: block;">
                     <h3 style="margin:5%  auto; color: #003D79; font-size: 300%; text-align: center;">
@@ -59,9 +60,102 @@ class sedeController {
             </div>';
         }
     }
+    public function __visualizarSedes(){
+        $html = "";//$html guarda el html para visualizar sedes
+        $this->datos = $this->sedeModel->__getSedes();
+        $numero_filas = count($this->datos);
+        if($numero_filas == 1 && $this->datos[0] == "non"){
+            $html=<<<EOT
+            <div class="no_sedes">
+            <h2>No hay sedes guardadas<h2>
+            </div>
+            EOT;
+        }else{
+            $html=<<<EOT
+            <div class="row">
+            <div class="col">
+            <div  class="info_sedes">
+                <h2>Información de las Sedes</h2>
+            </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col">
+            <table class="table">
+            <thead>
+            <tr></tr>
+            </thead>
+            <tbody>
+            EOT;
+            for($c=0; $c < $numero_filas; $c++){
+                $html .=<<<EOT
+                <tr>
+                <form action="../controllers/sedes.php" method="post">
+                <th scope="row">
+                <div>
+                    <label  class="form-label num">
+                        Número 
+                    </label>
+                    <p>{$this->datos[$c]['Id_sede']}</p>
+                    </div>
+                </th>
+                <td>
+                <div>
+                <label for="name_sede" class="form-label">
+                    Nombre de la Sede
+                </label>
+                    <input type="text" name="name_sede" id="name_sede" value='{$this->datos[$c]['Nombre_sede']}' class="form-control">
+                </div>
+                </td>
+                <td>
+                    <div>
+                        <label for="country" class="form-label">
+                            Pais
+                        </label>
+                        <input type="text" name="country" id="country" value='{$this->datos[$c]['Pais']}' class="form-control">
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <label for="address" class="form-label">
+                            Dirección
+                        </label>
+                        <input type="text" name="address" id="address" value='{$this->datos[$c]['Direccion']}' class="form-control">
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <label for="telephone" class="form-label">
+                            Telefono 
+                        </label>
+                        <input type="text" name="telephone" id="telephone" value='{$this->datos[$c]['Telefono']}' class="form-control">
+                    </div>
+                </td>
+                <td>
+                    <button type="submit" name="editar" class="btn_color">Editar</button>
+                    <input type="hidden" name="clave_id_sede">
+                </td>
+                <td>
+                    <button type="submit" name="eliminar" class="btn_color">Eliminar</button>
+                    <input type="hidden" name="clave_id_sede">
+                </td>
+                </form>
+                <tr>
+                EOT;
+            }
+            $html .=<<<EOT
+            </tbody>
+            </table>
+            </div>
+            </div>
+            EOT;
+        }
+        return $html;
+    }
 }
 
 // Reutiliza la conexión a la base de datos desde database.php
 $sedeController = new SedeController($conexion);
 $sedeController->registrarSede();
+$miTabla = $sedeController->__visualizarSedes();
 ?>
