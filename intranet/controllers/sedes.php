@@ -7,16 +7,18 @@ En este caso, recibirá los datos del formulario (vista) y llamará
 al modelo para hacer la lógica de negocio, como verificar si 
 el usuario ya existe y agregar un nuevo usuario.*/
 
-include_once "../../../config/database.php";   
-include_once "../../models/sedes.php";
+
+include_once "intranet/models/sedes.php";
 
 class sedeController {
     private $sedeModel;
     private $datos;
+    private $conexion;
 
     // Constructor para inicializar el modelo de usuarios con la conexión de la base de datos
     public function __construct($db) {
-        $this->sedeModel = new SedeModel($db);
+        $this->conexion = $db;
+        $this->sedeModel = new SedeModel($this->conexion);
     }
 
     // Método para manejar la solicitud de registro de usuario
@@ -62,7 +64,7 @@ class sedeController {
     }
     public function __visualizarSedes(){
         $html = "";//$html guarda el html para visualizar sedes
-        $this->datos = $this->sedeModel->__getSedes();
+        $this->datos = $this->sedeModel->__getSede();
         $numero_filas = count($this->datos);
         if($numero_filas == 1 && $this->datos[0] == "non"){
             $html=<<<EOT
@@ -152,10 +154,34 @@ class sedeController {
         }
         return $html;
     }
+    
+    #metodo run 
+    public function run($accion){
+        switch ($accion){
+            case "visualizar":
+                $mihtml = $this->__visualizarSedes();
+                $this->vistas($mihtml,"visualizar_sedes");
+            break;
+            case "crear":
+            break;
+            case "modificar":
+            break;
+            case "eliminar":
+            break;
+            default:
+
+            break;
+        }
+    }
+    
+    public function vistas($datos, $vista){
+        $html = $datos;
+        require_once "intranet/views/sedes/".$vista.".php";
+    }
 }
 
 // Reutiliza la conexión a la base de datos desde database.php
-$sedeController = new SedeController($conexion);
+/* $sedeController = new SedeController($conexion);
 $sedeController->registrarSede();
-$miTabla = $sedeController->__visualizarSedes();
+$miTabla = $sedeController->__visualizarSedes(); */
 ?>

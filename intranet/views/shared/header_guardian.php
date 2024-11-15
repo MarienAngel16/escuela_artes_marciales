@@ -36,7 +36,10 @@
                             <li><a href="#">Mi Cuenta</a></li>
                             <li><a href="../../../logout.php">Salir</a></li>
                             <li><a href="../../../index.php?vista=../sedes/create.php"></a>Alta Sedes</li>                            
-                            <li><a class="../../../index.php?vista=../sedes/.php" href="#">Ver Sedes</a></li>
+                            <li><a href="../../../index.php?vista=../sedes/visualizar_sedes.php">Ver Sedes</a></li>
+                            <li><a href="../../../index.php?vista=../usuarios/create.php">Alta Usuarios</a></li>
+                            <li><a href="../../../index.php?vista=../usuarios/view.php">Ver Usuarios</a></li>
+
                       </ul>                
                     </nav>
             

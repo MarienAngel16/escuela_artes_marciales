@@ -14,7 +14,8 @@
   <?php 
 /*   Verificación de inicio de sesión en cada página */
   session_start();
-  if (!isset($_SESSION['usuario']) || $_SESSION['rol'] !== true) {
+
+  if (!isset($_SESSION['usuario'])) {
        ?>
 
 <div class="container">
@@ -52,10 +53,94 @@
 
       <?php
       
-  } else {
-    include_once "mi_cuenta.php";
+  } else {     
+     
+
+      switch ($_SESSION['usuario']['rol']){
+
+        case (1):
+          include_once "/escuela_artes_marciales/intranet/views/shared/header_guardian.php";
+          break;
+        case (2):
+            include_once "/escuela_artes_marciales/intranet/views/shared/header_director.php";
+            break;
+        case (3):
+            include_once "intranet/views/shared/header_secretario.php";
+            break;
+        case (4):
+            include_once "/escuela_artes_marciales/intranet/views/shared/header_instructor.php";
+            break;
+        default:
+            include_once "/escuela_artes_marciales/intranet/views/shared/header_instructor.php";
+            break;
+            
+      }
+
+      if(isset($_GET["controller"])){
+        // We load the instance of the corresponding controller
+        echo "hola";
+        $controllerObj=cargarControlador($_GET["controller"]);
+        //We launch the action
+        launchAction($controllerObj);
+        }else{
+          echo "adios";
+        // We load the default controller instance
+        $controllerObj=cargarControlador("general");
+        // We launch the action
+        launchAction($controllerObj);
+    }
+
+      
+
+    
+
+    require_once "mi_cuenta.php"; 
+    /* print_r($_SESSION['usuario']); */
+
+
+    include_once "intranet/views/shared/footer.php";
+
+
+
+
+    
+    
+    // session_unset(); // Eliminar todas las variables de sesión.
+    // session_destroy(); // Destruir la sesión.
+    // exit; 
+
+  }
+
+  function cargarControlador($controller){
+    include_once "config/database.php";  
+    switch ($controller) {
+        case 'sedes':
+            $strFileController='intranet/controllers/sedes.php';
+            require_once $strFileController;
+            $controllerObj=new sedeController($conexion);
+            break;
+        default:
+            $strFileController='intranet/controllers/general_controller.php';
+            require_once $strFileController;
+            $controllerObj=new generalController();
+            break;
+    }
+    return $controllerObj; 
+    }
+
+    function launchAction($controllerObj){
+      #requiere una accion
+      if(isset($_GET["accion"])){
+          $controllerObj->run($_GET["accion"]);
+      }else{
+          $controllerObj->run("index");
+      }
   }
   ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+
 
 
 <!--logica interna para conectar a la base de datos-->

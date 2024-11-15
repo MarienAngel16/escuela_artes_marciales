@@ -16,6 +16,28 @@ class AlumnoController{
         $this->alumno_model = new AlumnoModel($this->conexion);
     }
 
+    public function run($accion){
+        switch($accion)
+        {
+            case "index" :
+                $this->view_crear();
+                break;
+            case "alta" :
+                $this->crear();
+                break;
+            case "detalle" :
+                $this->detalle();
+                break;
+            case "actualizar" :
+                $this->actualizar();
+                break;
+            default:
+                $this->index();
+                break;
+        }
+    }
+
+
     public function __imprimirGrupos(){
         $html_grupos="<div class='mb-3'>"; #Variable con código para mostrar datos
         $this->datos = $this->grupo_model->__getGrupos(); #Obtiene los grupos
@@ -80,6 +102,8 @@ class AlumnoController{
             }
         }
     }
+
+    
 }
 
 $gpo = new AlumnoController($conexion);

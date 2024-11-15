@@ -37,13 +37,13 @@ if ($conexion) {
                 $_SESSION['usuario']['rol'] = $tipo_rol; // Guarda el rol en la sesión también
                 // Mostrar alerta según el rol y redireccion a mi cuenta
                 if ($tipo_rol == 1) {
-                    echo "<script>alert('Inicio de sesión correctamente como Guardian'); window.location.href = 'mi_cuenta.php';</script>";
+                    echo "<script>alert('Inicio de sesión correctamente como Guardian'); window.location.href = 'index.php';</script>";
                 } elseif ($tipo_rol == 2) {
-                    echo "<script>alert('Inicio de sesión correctamente como Directivo'); window.location.href = 'mi_cuenta.php';</script>";
+                    echo "<script>alert('Inicio de sesión correctamente como Directivo'); window.location.href = 'index.php';</script>";
                 } elseif ($tipo_rol == 3) {
-                    echo "<script>alert('Inicio de sesión correctamente como Secretario'); window.location.href = 'mi_cuenta.php';</script>";
+                    echo "<script>alert('Inicio de sesión correctamente como Secretario'); window.location.href = 'index.php';</script>";
                 } elseif ($tipo_rol == 4) {
-                    echo "<script>alert('Inicio de sesión correctamente como Instructor'); window.location.href = 'mi_cuenta.php';</script>";
+                    echo "<script>alert('Inicio de sesión correctamente como Instructor'); window.location.href = 'index.php';</script>";
                 } else {
                     echo "<script>alert('Rol desconocido'); window.location.href = 'login.php';</script>";
                 }
