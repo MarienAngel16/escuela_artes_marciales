@@ -35,6 +35,16 @@
                         <ul class="menu">
                             <li><a href="#">Mi Cuenta</a></li>
                             <li><a href="../../../logout.php">Salir</a></li>
+                            <li><a href="../../../index.php?vista=../sedes/create.php"></a>Alta Sedes</li>                            
+                            <li><a class="../../../index.php?vista=../sedes/.php" href="#">Ver Sedes</a></li>
+                      </ul>                
+                    </nav>
+            
+        </div><!-- Cierre de col -->
+        
+    </div> <!-- Cierre de row -->
+</div> <!-- Cierre de Container Navegación-->
+
                      
 
 
