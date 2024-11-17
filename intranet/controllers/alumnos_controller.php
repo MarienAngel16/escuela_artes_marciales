@@ -16,27 +16,6 @@ class AlumnoController{
         $this->alumno_model = new AlumnoModel($this->conexion);
     }
 
-    public function run($accion){
-        switch($accion)
-        {
-            case "index" :
-                $this->view_crear();
-                break;
-            case "alta" :
-                $this->crear();
-                break;
-            case "detalle" :
-                $this->detalle();
-                break;
-            case "actualizar" :
-                $this->actualizar();
-                break;
-            default:
-                $this->index();
-                break;
-        }
-    }
-
 
     public function __imprimirGrupos(){
         $html_grupos="<div class='mb-3'>"; #Variable con código para mostrar datos
@@ -103,14 +82,40 @@ class AlumnoController{
         }
     }
 
+     #metodo run 
+     public function run($accion){
+        switch ($accion){
+            case "crear":
+                $mihtml = $this->__imprimirGrupos();
+                $this->vistas($mihtml,"create");
+            break;
+            case "alta":
+                $this->_registrarAlumno();
+                $mihtml = $this->__imprimirGrupos();
+                $this->vistas($mihtml,"create");                             
+            break;
+            default:
+            break;
+        }
+    }
+    
+    public function vistas($datos, $vista){
+        $html = $datos;
+        require_once "intranet/views/alumnos/".$vista.".php";
+    }
+
+        public function vistas_sn($vista){        
+        require_once "intranet/views/alumnos/".$vista.".php";
+    }
+
     
 }
 
-$gpo = new AlumnoController($conexion);
+/* $gpo = new AlumnoController($conexion);
 $gpo->__registrarAlumno();
 $html_grupos = $gpo->__imprimirGrupos();
 
 #Llamar a la vista de registrar alumnos
-require_once "create.php";
+require_once "create.php"; */
 ?>
 

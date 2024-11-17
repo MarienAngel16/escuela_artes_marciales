@@ -122,6 +122,16 @@
           require_once $strFileController;
           $controllerObj=new UsuarioController($conexion);
         break;
+        case 'alumnos':
+          $strFileController='intranet/controllers/alumnos_controller.php';
+          require_once $strFileController;
+          $controllerObj=new AlumnoController($conexion);
+        break;
+        case 'grupos':
+          $strFileController='intranet/controllers/grupos_controller.php';
+          require_once $strFileController;
+          $controllerObj= new GrupoController($conexion);
+        break;
         default:
             $strFileController='intranet/controllers/general_controller.php';
             require_once $strFileController;

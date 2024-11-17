@@ -5,7 +5,7 @@
         <h2>Dar de Alta Participantes</h2>
 
         
-        <form action="../../controllers/alumnos_controller.php"  method="POST" class="formu_g" style="padding-bottom:30px;";>
+        <form action="index.php?controller=alumnos&accion=alta"  method="POST" class="formu_g" style="padding-bottom:30px;";>
       
         <div class="mb-3">
            <label for="alumno1">Nombre </label>
@@ -33,7 +33,7 @@
         </div>      
 
         <?php 
-        echo $html_grupos;
+        echo $html;
         ?>
 
         </form>

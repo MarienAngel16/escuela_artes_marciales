@@ -101,6 +101,41 @@ class GrupoController{
         return $html_sede;
     }             
      
+    public function __imprimirGrupo(){
+        $html_grupo=""; #Mi variable $html_sede contiene codigo html de los datos necesarios
+        $this->datos = $this->grupo_model->getAllGroups(); 
+        $numero_filas = count($this->datos); 
+        if($numero_filas == 1 && $this->datos[0] == "Non"){
+            $html_grupo.=<<<EOT
+            <tr>
+            <td>0</td>
+            <td>Sin registro</td>
+            <td>Sin registro</td>
+            <td>Sin registro</td>
+            <td>Sin registro</td>
+            </tr>
+            EOT;
+        }else{
+            #Si hay grupos
+
+            #<td><a href="#" class="group-link" data-id="{$this->datos[$c]['Id_grupo']}"><{$this->datos[$c]['Id_grupo']}></a></td>
+            
+            for($c=0 ;$c<$numero_filas;$c++){
+                $html_grupo .=<<<EOT
+                <tr>
+                <td>{$this->datos[$c]['Id_grupo']}</td>
+                <td>{$this->datos[$c]['Numero_grupo']}</td>
+                <td>{$this->datos[$c]['Disciplina']}</td>
+                <td>{$this->datos[$c]['Horario']}</td>
+                <td>{$this->datos[$c]['Sala']}</td>
+                <td>{$this->datos[$c]['sede_nombre']}</td>
+                <td>{$this->datos[$c]['profesor_nombre']}</td>
+                </tr>
+                EOT;
+            }
+        }
+        return $html_grupo;
+    } 
     
 
     public function __registrarGrupo(){
@@ -124,12 +159,47 @@ class GrupoController{
 
         }
     }
-}
-// $gpo = new GrupoController($conexion);
-// $gpo->__registrarGrupo();
-// $html_instructor = $gpo->__imprimirInstructor();
-// $html_sede = $gpo->__imprimirSede();
+    #metodo run 
+    public function run($accion){
+        switch ($accion){
+            case "visualizar":
+                $mihtml = $this->__imprimirGrupo();
+                $this->vistas($mihtml,"mostrar_view");
+            break;
+            case "crear":
+                //llamar  y ver al formulario de crear 
+                $datos1 = $this->__imprimirInstructor();
+                $datos2 = $this->__imprimirSede();
+                $this->vistas_dos_datos($datos1,$datos2,"create_view");
+            break;
+            case "alta":
+                $this->__registrarGrupo();
+                $datos1 = $this->__imprimirInstructor();
+                $datos2 = $this->__imprimirSede();
+                $this->vistas_dos_datos($datos1,$datos2,"create_view");
+            break;
+            case "modificar":
+            break;
+            case "eliminar":
+            break;
+            default:
 
-#Llamar a la vista de registrar grupo 
-/* require_once "create_view.php"; */
+            break;
+        }
+    }
+    
+    public function vistas($datos, $vista){
+        $html = $datos;
+        require_once "intranet/views/grupos/".$vista.".php";
+    }
+    public function vistas_dos_datos($datos,$datos_d,$vista){
+        $html = $datos;
+        $html_d = $datos_d;
+        require_once "intranet/views/grupos/".$vista.".php";
+    }
+
+        public function vistas_sn($vista){        
+        require_once "intranet/views/grupos/".$vista.".php";
+    }
+}
 ?>

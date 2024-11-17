@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row" >
     <div class="col sm-8" style="margin-top:50px;">
@@ -19,17 +18,9 @@
             </tr>
         </thead>
         <tbody class="contenidobusqueda">
-            <?php foreach ($groups as $group): ?>
-                <tr>
-                    <td><a href="#" class="group-link" data-id="<?php echo $group['Id_grupo']; ?>"><?php echo $group['Id_grupo']; ?></a></td>
-                    <td><?php echo $group['Numero_grupo']; ?></td>
-                    <td><?php echo $group['Disciplina']; ?></td>
-                    <td><?php echo $group['Horario']; ?></td>
-                    <td><?php echo $group['Sala']; ?></td>
-                    <td><?php echo $group['sede_nombre']; ?></td>
-                    <td><?php echo $group['profesor_nombre']; ?></td>
-                </tr>
-            <?php endforeach; ?>
+            <?php 
+            echo  $html;
+             ?>
         </tbody>
     </table>
 
@@ -53,7 +44,7 @@
 
 <div class="col sm-2">
 <!--espacio para la imagen-->
-<img src="../../../public/images/grupo_alta.jpeg" width="500px" class="rounded mx-auto d-block imagen_p" alt="grupo">
+<img src="public/images/grupo_alta.jpeg" width="500px" class="rounded mx-auto d-block imagen_p" alt="grupo">
 </div>
 
 </div>
