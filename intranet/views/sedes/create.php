@@ -6,7 +6,7 @@
         <h2>Dar de Alta Sedes</h2>
 
         
-        <form action="../../controllers/sedes.php"  method="POST" class="formu_g">
+        <form action="index.php?controller=sedes&accion=alta"  method="POST" class="formu_g">
       
         <div class="mb-3">
            <label for="sede1">Nombre de la Sede</label>
@@ -25,7 +25,7 @@
            <input type="text" class="form-control" id="telsede1" name="telsede1" placeholder="Coloque el teléfono de la sede" required="required" >
         </div>
   
-        <input type='submit' class='btn btn-danger' name='nueva_sede' value'Enviar' />
+        <input type='submit' class='btn btn-danger' name='nueva_sede' value='Enviar' />
 
         </form>
 

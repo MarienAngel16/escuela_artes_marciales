@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <!-- Enlace al archivo CSS -->
-    <link rel="stylesheet" href="../../../public/css/style.css">
+    <link rel="stylesheet" href="public/css/style.css">
 
 </head>
 <body>
@@ -26,7 +26,7 @@
         <div class="col">
             <img class="logo" 
                 style="width: 100%; max-width: 700px; height: 150px; object-fit: cover; margin: 5px 0px 5px 10px;" 
-                src="../../assets/images/logo_alargado.png" 
+                src="intranet/assets/images/logo_alargado.png" 
                 alt="Logo de la Escuela">    
         </div>
         
@@ -34,11 +34,11 @@
             <nav>               
                         <ul class="menu">
                             <li><a href="#">Mi Cuenta</a></li>
-                            <li><a href="../../../logout.php">Salir</a></li>
-                            <li><a href="../../../index.php?vista=../sedes/create.php"></a>Alta Sedes</li>                            
-                            <li><a href="../../../index.php?vista=../sedes/visualizar_sedes.php">Ver Sedes</a></li>
-                            <li><a href="../../../index.php?vista=../usuarios/create.php">Alta Usuarios</a></li>
-                            <li><a href="../../../index.php?vista=../usuarios/view.php">Ver Usuarios</a></li>
+                            <li><a href="logout.php">Salir</a></li>
+                            <li><a href="index.php?controller=sedes&accion=crear">Alta Sedes</a></li>                            
+                            <li><a href="index.php?controller=sedes&accion=visualizar">Ver Sedes</a></li>
+                            <li><a href="index.php?controller=usuarios&accion=crear">Alta Usuarios</a></li>
+                            <li><a href="index.php?controller=usuarios&accion=visualizar">Ver Usuarios</a></li>
 
                       </ul>                
                     </nav>

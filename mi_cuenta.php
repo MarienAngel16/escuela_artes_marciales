@@ -47,7 +47,7 @@ if (isset($_SESSION['usuario'])) {
 
         <!-- Imagen de samurai centrada --> 
         <div class="col-12 col-md-6">
-            <img class="img-fluid" src="intranet/assets/images/samurai.png.png" alt="Samurai" width="350" height="250">
+            <img class="img-fluid" src="intranet/assets/images/samurai.jpeg" alt="Samurai" style="width:350px; heigth:250px;" >
         </div>
     </div>
 </div>

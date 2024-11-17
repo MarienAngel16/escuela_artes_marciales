@@ -163,6 +163,12 @@ class sedeController {
                 $this->vistas($mihtml,"visualizar_sedes");
             break;
             case "crear":
+                //llamar  y ver al formulario de crear 
+                $this->vistas_sn("create");
+            break;
+            case "alta":
+                $this->registrarSede();
+                $this->vistas_sn("create");               
             break;
             case "modificar":
             break;
@@ -176,6 +182,10 @@ class sedeController {
     
     public function vistas($datos, $vista){
         $html = $datos;
+        require_once "intranet/views/sedes/".$vista.".php";
+    }
+
+        public function vistas_sn($vista){        
         require_once "intranet/views/sedes/".$vista.".php";
     }
 }

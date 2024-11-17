@@ -35,7 +35,7 @@
             <nav>               
                         <ul class="menu">
                             <li><a href="#">Mi Cuenta</a></li>
-                            <li><a href="../../../logout.php">Salir</a></li>                                      
+                            <li><a href="logout.php">Salir</a></li>                                      
                             <li><a href="index.php?controller=sedes&accion=visualizar">Ver Sedes</a></li>
                             <li><a href="../../../index.php?vista=../usuarios/view.php">Ver Grupos</a></li>
                             <li><a href="../../../index.php?vista=../usuarios/view.php">Alta Alumnos</a></li>

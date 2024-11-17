@@ -71,7 +71,6 @@ public function altaUsuario($usuario, $nombre, $telefono, $correo, $direccion, $
         return false;
     }
 }
-
     public function __getInstructor(){
         $sql = "SELECT us.Id_usuario, us.Nombre FROM Usuarios AS us INNER JOIN usuario_rol AS usrol ON  us.Id_usuario = usrol.Id_usuario WHERE usrol.Id_rol = 4;";
         $consulta = $this->conexion->query($sql);
@@ -87,6 +86,36 @@ public function altaUsuario($usuario, $nombre, $telefono, $correo, $direccion, $
             return $this->datos;
         }
     }
+    public function __getSede(){
+        $sql = "SELECT * FROM Sedes";
+        $consulta = $this->conexion->query($sql);
+        if($consulta->num_rows == 0){
+            $this->datos[0]="Non";
+            return $this->datos;
+        }else{
+            $i=0;
+            while($filas = $consulta->fetch_assoc()){
+                $this->datos[$i] = $filas;
+                $i++;
+            }
+            return $this->datos;
+        }
+    }
 
+    public function __getUsuario(){
+        $sql = "SELECT * FROM Usuarios";
+        $consulta = $this->conexion->query($sql);
+        if($consulta->num_rows == 0){
+            $this->datos[0]="Non";
+            return $this->datos;
+        }else{
+            $i=0;
+            while($filas = $consulta->fetch_assoc()){
+                $this->datos[$i] = $filas;
+                $i++;
+            }
+            return $this->datos;
+        }
+    }
 }
 ?>

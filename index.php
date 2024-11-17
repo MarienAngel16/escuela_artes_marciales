@@ -59,31 +59,29 @@
       switch ($_SESSION['usuario']['rol']){
 
         case (1):
-          include_once "/escuela_artes_marciales/intranet/views/shared/header_guardian.php";
+          include_once "intranet/views/shared/header_guardian.php";
           break;
         case (2):
-            include_once "/escuela_artes_marciales/intranet/views/shared/header_director.php";
+            include_once "intranet/views/shared/header_director.php";
             break;
         case (3):
             include_once "intranet/views/shared/header_secretario.php";
             break;
         case (4):
-            include_once "/escuela_artes_marciales/intranet/views/shared/header_instructor.php";
+            include_once "intranet/views/shared/header_instructor.php";
             break;
         default:
-            include_once "/escuela_artes_marciales/intranet/views/shared/header_instructor.php";
+            include_once "intranet/views/shared/header_instructor.php";
             break;
             
       }
 
       if(isset($_GET["controller"])){
         // We load the instance of the corresponding controller
-        echo "hola";
         $controllerObj=cargarControlador($_GET["controller"]);
         //We launch the action
         launchAction($controllerObj);
         }else{
-          echo "adios";
         // We load the default controller instance
         $controllerObj=cargarControlador("general");
         // We launch the action
@@ -118,7 +116,12 @@
             $strFileController='intranet/controllers/sedes.php';
             require_once $strFileController;
             $controllerObj=new sedeController($conexion);
-            break;
+        break;
+        case 'usuarios':
+          $strFileController='intranet/controllers/usuarios.php';
+          require_once $strFileController;
+          $controllerObj=new UsuarioController($conexion);
+        break;
         default:
             $strFileController='intranet/controllers/general_controller.php';
             require_once $strFileController;

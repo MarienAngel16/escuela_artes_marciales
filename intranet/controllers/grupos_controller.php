@@ -125,10 +125,10 @@ class GrupoController{
         }
     }
 }
-$gpo = new GrupoController($conexion);
-$gpo->__registrarGrupo();
-$html_instructor = $gpo->__imprimirInstructor();
-$html_sede = $gpo->__imprimirSede();
+// $gpo = new GrupoController($conexion);
+// $gpo->__registrarGrupo();
+// $html_instructor = $gpo->__imprimirInstructor();
+// $html_sede = $gpo->__imprimirSede();
 
 #Llamar a la vista de registrar grupo 
 /* require_once "create_view.php"; */
