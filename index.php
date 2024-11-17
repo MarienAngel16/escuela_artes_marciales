@@ -87,12 +87,8 @@
         // We launch the action
         launchAction($controllerObj);
     }
-
-      
-
-    
-
-    require_once "mi_cuenta.php"; 
+       
+   
     /* print_r($_SESSION['usuario']); */
 
 
@@ -131,6 +127,11 @@
           $strFileController='intranet/controllers/grupos_controller.php';
           require_once $strFileController;
           $controllerObj= new GrupoController($conexion);
+        break;
+        case 'cuenta':
+          $strFileController='intranet/controllers/general_controller.php';
+          require_once $strFileController;
+          $controllerObj = new generalController();
         break;
         default:
             $strFileController='intranet/controllers/general_controller.php';

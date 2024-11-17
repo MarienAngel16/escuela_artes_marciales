@@ -7,14 +7,17 @@ class generalController{
         
     }
 
-    public function run ($action){
-       switch ($action){
-
+    public function run ($accion){
+       switch ($accion){
         case "index": 
             $this -> index ();
-            break;
-            default: index ();
-            break;
+        break;
+        case "cuenta":
+            $this->view("mi_cuenta");
+        break;
+        default: 
+            index ();
+        break;
        }
     }
 

@@ -26,15 +26,15 @@
         <div class="col">
             <img class="logo" 
                 style="width: 100%; max-width: 700px; height: 150px; object-fit: cover; margin: 5px 0px 5px 10px;" 
-                src="//assets/images/logo_alargado.png" 
+                src="public/images/logo_alargado.png" 
                 alt="Logo de la Escuela">    
         </div>
         
         <div class="col">
             <nav>               
                         <ul class="menu">
-                            <li><a href="#">Mi Cuenta</a></li>
-                            <li><a href="../../../logout.php">Salir</a></li>                                      
+                            <li><a href="index.php?controller=cuenta&accion=cuenta">Mi Cuenta</a></li>
+                            <li><a href="logout.php">Salir</a></li>                                      
                             <li><a href="index.php?controller=sedes&accion=visualizar">Ver Sedes</a></li>
                             <li><a href="index.php?controller=grupos&accion=crear">Alta Grupos</a></li>
                             <li><a href="index.php?controller=grupos&accion=visualizar">Ver Grupos</a></li>
