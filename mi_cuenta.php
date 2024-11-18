@@ -28,7 +28,7 @@ if (isset($_SESSION['usuario'])) {
     }
 ?>
 
-<div class="container text-center">
+<div class="container text-center" style="padding:130px;">
     <div class="row">
         <div class="col-12 mb-4">
             <h2>Bienvenido, <?php echo $rol_nombre; ?></h2>
@@ -47,7 +47,7 @@ if (isset($_SESSION['usuario'])) {
 
         <!-- Imagen de samurai centrada --> 
         <div class="col-12 col-md-6">
-            <img class="img-fluid" src="intranet/assets/images/samurai.jpeg" alt="Samurai" style="width:350px; heigth:250px;" >
+            <img class="img-fluid" src="public/images/Samurai.png" alt="Samurai" style="width:550px; heigth:250px;" >
         </div>
     </div>
 </div>

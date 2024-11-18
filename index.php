@@ -40,9 +40,6 @@
 <input type="submit" class="form-control btn-color fw-semibold mt-3">
  
 <!--visualizar grupos-->
-<p class="mb-3"></p>
-  <a class="lista" href="https://www.mozilla.org/es-ES/">Visualizar grupos únicamente</a>  
-
 </div>
  </form>
 </div>
@@ -60,18 +57,23 @@
 
         case (1):
           include_once "intranet/views/shared/header_guardian.php";
+          echo'<style> body{ background: url(public/images/image_guardian.png); } </style>';
           break;
         case (2):
             include_once "intranet/views/shared/header_director.php";
+            echo'<style>body{background: url(public/images/image_director.png);}</style>';
             break;
         case (3):
             include_once "intranet/views/shared/header_secretario.php";
+            echo'<style>body{background: url(public/images/image_secretario.png);}</style>';
             break;
         case (4):
             include_once "intranet/views/shared/header_instructor.php";
+            echo'<style>body{background: url(public/images/image_instructor.png);}</style>';
             break;
         default:
             include_once "intranet/views/shared/header_instructor.php";
+            echo'<style>body{background: url(public/images/image_instructor.png);}</style>';
             break;
             
       }

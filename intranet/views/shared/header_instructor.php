@@ -17,7 +17,10 @@
     <link rel="stylesheet" href="../../../public/css/style.css">
 
 </head>
-<body>
+<body style="background-image:url('public/images/image_instructor.jpeg') ;
+background-size: cover; /* Ajusta el tamaño de la imagen para que cubra todo el fondo */ 
+background-repeat: no-repeat; /* Evita que la imagen se repita */ 
+background-position: center; /* Centra la imagen en el fondo */">
 
 <div class="container-fluid" style="background-color:#bf0603;">
     <div class="row align-items-center">
@@ -34,10 +37,12 @@
             <nav>               
                         <ul class="menu">
                             <li><a href="index.php?controller=cuenta&accion=cuenta">Mi Cuenta</a></li>
-                            <li><a href="logout.php">Salir</a></li>                                      
+                                   
                             <li><a href="index.php?controller=sedes&accion=visualizar">Ver Sedes</a></li>
                             <li><a href="index.php?controller=grupos&accion=visualizar">Ver Grupos</a></li>
-                      </ul>                
+                            <li> | </a></li>   
+                            <li><a href="logout.php">Salir</a></li>   
+                        </ul>                
                     </nav>
             
         </div><!-- Cierre de col -->

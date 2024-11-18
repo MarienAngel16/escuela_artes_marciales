@@ -42,7 +42,7 @@
     </div>
     <div class="col">
               <!--espacio para la imagen-->
-              <img src="../../../public/images/grupo_alta.jpeg" width="500px" class="rounded mx-auto d-block imagen_p" alt="grupo">
+              <img src="public/images/grupo_alta.png" width="500px" class="rounded mx-auto d-block imagen_p" alt="grupo">
     </div>
   </div>
 </div>

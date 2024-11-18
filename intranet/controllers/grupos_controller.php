@@ -32,13 +32,43 @@ class GrupoController{
         require 'mostrar_view.php';
     }
 
-    public function showStudents($groupId) {
+    public function __imprimirAlumnos() {
         // Obtenemos los alumnos por grupo usando el modelo
-        $students = $this->grupo_model->getStudentsByGroup($groupId);
-        
-        // Devolvemos los datos en formato JSON
-        header('Content-Type: application/json');
-        echo json_encode($students);
+        $html_alumno = "";
+        $grupoId = $_GET['id'];
+        $alumnos = $this->grupo_model->getAlumnos($grupoId);
+        $numero_filas = count($alumnos);
+        if($numero_filas == 1 && $alumnos[0] == "Non"){
+            $html_alumno.=<<<EOT
+            <tr>            
+            <td>Sin registro</td>
+            <td>Sin registro</td>
+            <td>Sin registro</td>
+            <td>Sin registro</td>
+            <td>Sin registro</td>
+            <td>Sin registro</td>
+            <td>Sin registro</td>
+            <td>Sin registro</td>
+            </tr>
+            EOT;
+        }else{
+            #Si hay alumnos           
+            for($c=0 ;$c<$numero_filas;$c++){
+                $html_alumno.=<<<EOT
+                <tr>
+                <td>{$alumnos[$c]['Id_alumno']}</td>
+                <td>{$alumnos[$c]['al_nombre']}</td>
+                <td>{$alumnos[$c]['al_email']}</td>
+                <td>{$alumnos[$c]['al_edad']}</td>
+                <td>{$alumnos[$c]['al_direccion']}</td>
+                <td>{$alumnos[$c]['al_telefono_propio']}</td>
+                <td>{$alumnos[$c]['al_telefono_emergencia']}</td>
+                <td>{$alumnos[$c]['Id_grupo']}</td>
+                </tr>
+                EOT;
+            }
+        }
+        return $html_alumno;
     }
 
     public function __imprimirInstructor(){
@@ -123,7 +153,7 @@ class GrupoController{
             for($c=0 ;$c<$numero_filas;$c++){
                 $html_grupo .=<<<EOT
                 <tr>
-                <td>{$this->datos[$c]['Id_grupo']}</td>
+                <td><a href="index.php?controller=grupos&accion=abrir&id={$this->datos[$c]['Id_grupo']}">{$this->datos[$c]['Id_grupo']}</a></td>
                 <td>{$this->datos[$c]['Numero_grupo']}</td>
                 <td>{$this->datos[$c]['Disciplina']}</td>
                 <td>{$this->datos[$c]['Horario']}</td>
@@ -137,6 +167,9 @@ class GrupoController{
         return $html_grupo;
     } 
     
+    public function _abrirAlumnos(){
+
+    }
 
     public function __registrarGrupo(){
         if(isset($_POST['nuevo_grupo'],$_POST['numero'],$_POST['disciplina'],$_POST['horario'],$_POST['sala'],$_POST['cupo'],$_POST['instructor'],$_POST['sede'])){
@@ -178,12 +211,12 @@ class GrupoController{
                 $datos2 = $this->__imprimirSede();
                 $this->vistas_dos_datos($datos1,$datos2,"create_view");
             break;
-            case "modificar":
-            break;
-            case "eliminar":
-            break;
-            default:
+            case "abrir":
+                $mihtml = $this->__imprimirGrupo();
+                $mihtml2 = $this->__imprimirAlumnos();
+                $this->vistas_dos_datos($mihtml,$mihtml2,"mostrar_view");
 
+            default:
             break;
         }
     }

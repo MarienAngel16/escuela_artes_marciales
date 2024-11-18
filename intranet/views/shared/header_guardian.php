@@ -17,7 +17,10 @@
     <link rel="stylesheet" href="public/css/style.css">
 
 </head>
-<body>
+<body style="background-image:url('public/images/image_guardian.jpeg') ;
+background-size: cover; /* Ajusta el tamaño de la imagen para que cubra todo el fondo */ 
+background-repeat: no-repeat; /* Evita que la imagen se repita */ 
+background-position: center; /* Centra la imagen en el fondo */">
 
 <div class="container-fluid" style="background-color:#bf0603;">
     <div class="row align-items-center">
@@ -34,12 +37,12 @@
             <nav>               
                         <ul class="menu">
                             <li><a href="index.php?controller=cuenta&accion=cuenta">Mi Cuenta</a></li>
-                            <li><a href="logout.php">Salir</a></li>
                             <li><a href="index.php?controller=sedes&accion=crear">Alta Sedes</a></li>                            
                             <li><a href="index.php?controller=sedes&accion=visualizar">Ver Sedes</a></li>
                             <li><a href="index.php?controller=usuarios&accion=crear">Alta Usuarios</a></li>
                             <li><a href="index.php?controller=usuarios&accion=visualizar">Ver Usuarios</a></li>
-
+                            <li> | </a></li>   
+                            <li><a href="logout.php">Salir</a></li>   
                       </ul>                
                     </nav>
             

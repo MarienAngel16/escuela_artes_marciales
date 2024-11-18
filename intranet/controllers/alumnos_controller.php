@@ -18,7 +18,7 @@ class AlumnoController{
 
 
     public function __imprimirGrupos(){
-        $html_grupos="<div class='mb-3'>"; #Variable con código para mostrar datos
+        $html_grupos="<div class='mb-3'> <label for='grupo'>Grupo</label>"; #Variable con código para mostrar datos
         $this->datos = $this->grupo_model->__getGrupos(); #Obtiene los grupos
         $numero_filas = count($this->datos); 
         if($numero_filas == 1 && $this->datos[0] == "Non"){
@@ -90,7 +90,7 @@ class AlumnoController{
                 $this->vistas($mihtml,"create");
             break;
             case "alta":
-                $this->_registrarAlumno();
+                $this->__registrarAlumno();
                 $mihtml = $this->__imprimirGrupos();
                 $this->vistas($mihtml,"create");                             
             break;

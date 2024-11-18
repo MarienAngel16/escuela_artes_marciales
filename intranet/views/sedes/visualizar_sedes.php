@@ -1,6 +1,6 @@
 
     
-    <div class="container">
+    <div class="container" style="padding: 80px;">
     <?php 
     echo $html;
     ?>

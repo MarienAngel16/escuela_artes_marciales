@@ -70,7 +70,6 @@ class GrupoModel{
     }
 
     public function getAllGroups() {
-
         $sql = "
             SELECT 
                 g.Id_grupo,
@@ -101,19 +100,19 @@ class GrupoModel{
         return $groups;
     }
 
-    public function getStudentsByGroup($groupId) {
+    public function getAlumnos($groupId) {
         $sql = "SELECT * FROM Alumnos WHERE Id_grupo = ?";
         $stmt = $this->base->prepare($sql);
         $stmt->bind_param("i", $groupId);
         $stmt->execute();
         $result = $stmt->get_result();
-
-        $students = [];
+        $i=0;
+        $alumnos = [];
         while ($row = $result->fetch_assoc()) {
-            $students[] = $row;
+            $alumnos[$i] = $row;
+            $i++;
         }
-        
-        return $students;
+        return $alumnos;
     }
 
 }
