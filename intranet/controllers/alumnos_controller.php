@@ -69,7 +69,7 @@ class AlumnoController{
 
                         // Busca si el alumno ya existe en la base de datos
                         if ($this->alumno_model->__buscarAlumno($nombre, $correo)) {
-                            echo "<br>El registro ya está en la BD";
+                            echo "<script>alert('El alumno ya esta en la BD')</script>";
                         }else{
                             $consulta = $this->alumno_model->__altaAlumno($nombre,$correo,$edad,$direccion,$telefono,$emergencia,$grupo);
                         }

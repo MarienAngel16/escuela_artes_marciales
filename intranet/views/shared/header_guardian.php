@@ -41,8 +41,7 @@ background-position: center; /* Centra la imagen en el fondo */">
                             <li><a href="index.php?controller=sedes&accion=visualizar">Ver Sedes</a></li>
                             <li><a href="index.php?controller=usuarios&accion=crear">Alta Usuarios</a></li>
                             <li><a href="index.php?controller=usuarios&accion=visualizar">Ver Usuarios</a></li>
-                            <li> | </a></li>   
-                            <li><a href="logout.php">Salir</a></li>   
+                            <li><a href="logout.php" style="margin-left:  80px;">Salir</a></li> 
                       </ul>                
                     </nav>
             

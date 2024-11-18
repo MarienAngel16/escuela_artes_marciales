@@ -1,4 +1,4 @@
-<div class="container my-2">
+<div class="container my-2" style="padding: 50px;">
     <h2>Visualización de Usuarios</h2>
     
     <!-- Filtro de búsqueda -->

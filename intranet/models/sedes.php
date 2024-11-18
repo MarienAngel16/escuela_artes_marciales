@@ -32,14 +32,9 @@ public function altaSede($nombre_sede, $pais, $direccion, $telefono) {
     $stmt->bind_param('ssss', $nombre_sede, $pais, $direccion, $telefono);
     
     if ($stmt->execute()) {
-
-        // Inserción correcta de los datos de la sede
-        echo "Inserción correcta de la sede";
         return true;
-
     } else {
         // Manejar el error de la inserción en la tabla Usuarios
-        echo "Error al insertar una sede: " . $this->conexion->error;
         return false;
     }
 }

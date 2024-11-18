@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="public/css/style">
 
   <body>
+  <div id="page-container">
+  <div id="content-wrap">
 
   <?php 
 /*   Verificación de inicio de sesión en cada página */
@@ -18,11 +20,19 @@
   if (!isset($_SESSION['usuario'])) {
        ?>
 
-<div class="container">
+<div class="container text-center">
 
- <form class="form-group" action="login.php" method="POST">
+<style>
+  body{
+    background-image:url('public/images/image_instructor.jpeg');
+    background-size: cover; 
+    background-repeat: no-repeat;  
+    background-position: center; }
+</style>
 
-<div class="bg p-5 border border-5 border-dark rounded">
+<div class="bg-light p-5 border border-5 border-dark rounded col-md-6" style="margin:50px auto;">
+
+<form class="form-group" action="login.php" method="POST" >
 <!--imagen institutcional-->
 <img class="imagen" src="public/images\LogoRojo.png">
 <!--usuario-->
@@ -38,10 +48,9 @@
 <!--boton-->
 
 <input type="submit" class="form-control btn-color fw-semibold mt-3">
- 
+</form>
 <!--visualizar grupos-->
 </div>
- </form>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
@@ -89,18 +98,10 @@
         // We launch the action
         launchAction($controllerObj);
     }
-       
-   
+    
     /* print_r($_SESSION['usuario']); */
-
-
     include_once "intranet/views/shared/footer.php";
-
-
-
-
-    
-    
+ 
     // session_unset(); // Eliminar todas las variables de sesión.
     // session_destroy(); // Destruir la sesión.
     // exit; 

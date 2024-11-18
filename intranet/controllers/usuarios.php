@@ -34,7 +34,7 @@ class UsuarioController {
 
             // Busca si el usuario ya existe en la base de datos
             if ($this->usuarioModel->buscarUsuario($nombre, $contrasena)) {
-                echo "<br>El registro ya está en la BD";
+                echo "<script>alert('Ya existe el usuario en la BD')</script>";
             } else {
                 // Si el usuario no existe, lo inserta en la base de datos
                 if ($this->usuarioModel->altaUsuario($usuario, $nombre, $telefono, $correo, $direccion, $contrasena,$rol,$sede)) {

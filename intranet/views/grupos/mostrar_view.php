@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row" style="padding: 50px;">
+  <div class="row" style="padding: 80px ;">
     <div class="col sm-12">
        <h2>Lista de Grupos</h2>
         <div class="input-group"> <span class="input-group-addon">Filtrado</span>
@@ -31,7 +31,7 @@
 <?php
 if (isset($html_d)){
 ?>
-<div class="row" style="padding: 50px;">
+<div class="row" style="padding: 80px;">
     <div class="col sm-12">
     <h2>Lista de Alumnos por Grupo</h2>
          <div class="input-group"> <span class="input-group-addon">Filtrado</span>

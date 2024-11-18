@@ -41,8 +41,7 @@ background-position: center; /* Centra la imagen en el fondo */">
                             <li><a href="index.php?controller=grupos&accion=crear">Alta Grupos</a></li>
                             <li><a href="index.php?controller=grupos&accion=visualizar">Ver Grupos</a></li>
                             <li><a href="index.php?controller=alumnos&accion=crear">Alta Alumnos</a></li>
-                            <li> | </a></li>   
-                            <li><a href="logout.php">Salir</a></li>   
+                            <li><a href="logout.php" style="margin-left:  80px;">Salir</a></li>
                       </ul>                
                     </nav>
             

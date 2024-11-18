@@ -1,4 +1,7 @@
+</div>
+
 <footer>
+    
     <div class="contenedor-footer">
         <div class="content-foo">
             <h4>Teléfono</h4>
@@ -13,3 +16,7 @@
     </div>
     <h2 class="titulo-final">&copy; Mariana-Jose Uriel-Sebastian-Néstor| Desarroladores</h2>
 </footer>
+
+</div>
+
+

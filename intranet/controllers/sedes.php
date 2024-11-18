@@ -34,32 +34,17 @@ class sedeController {
 
             // Busca si el usuario ya existe en la base de datos
             if ($this->sedeModel->buscarSede($nombre_sede, $pais)) {
-                echo "<br>El registro ya está en la BD";
+                // echo "<br>El registro ya está en la BD";
             } else {
                 // Si el usuario no existe, lo inserta en la base de datos
                 if ($this->sedeModel->altaSede($nombre_sede, $pais,$direccion,$telefono)) {
-                    echo '
-                    <div class="row" style="display: block;">
-                    <h3 style="margin:5%  auto; color: #003D79; font-size: 300%; text-align: center;">
-                    Sede Guardada Correctamente    
-                    </h3>
-                    </div>';
+                    echo "<script language='javascript'> alert('Se registro la sede correctamente')</script>";
                 } else {
-                    echo '
-                    <div class="row" style="display: block;">
-                    <h3 style="margin:5%  auto; color: #003D79; font-size: 300%; text-align: center;">
-                    La Sede no se pudo guardar    
-                    </h3>
-                    </div>';
+                    echo "<script language='javascript'> alert('Error en el registro de sede')</script>";
                 }
             }
         }else {
-            echo '
-            <div class="row" style="display: block;">
-            <h3 style="margin:5%  auto; color: #003D79; font-size: 300%; text-align: center;">
-            No se pudo guardar  por que no se recibieron los parámetros necesarios  
-            </h3>
-            </div>';
+            echo "<script language='javascript'> alert('No se recibieron los parámetros adecuados')</script>";
         }
     }
     public function __visualizarSedes(){
@@ -132,14 +117,6 @@ class sedeController {
                         </label>
                         <input type="text" name="telephone" id="telephone" value='{$this->datos[$c]['Telefono']}' class="form-control">
                     </div>
-                </td>
-                <td>
-                    <button type="submit" name="editar" class="btn_color">Editar</button>
-                    <input type="hidden" name="clave_id_sede">
-                </td>
-                <td>
-                    <button type="submit" name="eliminar" class="btn_color">Eliminar</button>
-                    <input type="hidden" name="clave_id_sede">
                 </td>
                 </form>
                 <tr>
